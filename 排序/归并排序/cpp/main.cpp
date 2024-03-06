@@ -33,7 +33,7 @@ void mergeSort(vector<int>& nums, int l, int r) {
 int main(){
     std::vector<int> nums{10,9,8,7,6,5,4,3,2,1};//简单介绍一下vector
     tmp.resize((int)nums.size(), 0);
-    mergeSort(nums,0,(int)nums.size()-1);//讲一下什么是引用
+    mergeSort(nums,0,(int)nums.size()-1);//讲一下什么是引用，为什么size前面要转int
     for(int& n:nums){
         cout<<n<<endl;
     }
