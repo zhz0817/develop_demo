@@ -1,26 +1,21 @@
-import java.util.*;
-
+import java.io.*;
 // 1:无需package
 // 2: 类名必须Main, 不可修改
+
 public class Main {
-    public boolean carPooling(int[][] trips, int capacity) {
-        final int max = 1000; // 最远距离处
-        int[] diff = new int[max + 1];
-        for (int[] trip : trips) {
-            diff[trip[1]] += trip[0];
-            diff[trip[2]] -= trip[0];
-        }
-        int prefixSum = 0;
-        for (int i = 0; i <= max; i++) {
-            prefixSum += diff[i];
-            if (prefixSum > capacity) {
-                return false;
+
+    public int maxProfit(int[] prices) {
+        int ans = 0;
+        for(int i=1;i<prices.length;i++){
+            int val = prices[i]-prices[i-1];
+            if(val>0){
+                ans+=val;
             }
         }
-        return true;
+        return ans;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Main main = new Main();
     }
 }

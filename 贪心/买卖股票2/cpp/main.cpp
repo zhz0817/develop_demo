@@ -1,26 +1,21 @@
 #include "bits/stdc++.h"
 using namespace std;
-//https://leetcode.cn/problems/car-pooling/description/
+//https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/description/
+//从连续等价于每天的角度给出证明
 class Solution {
 public:
-    bool carPooling(vector<vector<int>>& trips, int capacity) {
-        int max = 1000;
-        int diff[max+1];
-        for(vector<int> trip:trips){
-            diff[trip[1]] += trip[0];
-            diff[trip[2]] -= trip[0];
-        }
-
-        int sum = 0;
-        for(int i=0;i<=max;i++){
-            sum+=diff[i];
-            if(sum>capacity){
-                return false;
+    int maxProfit(vector<int>& prices) {
+        int ans = 0;
+        for(int i=1;i<prices.size();i++){
+            int val = prices[i]-prices[i-1];
+            if(val>0){
+                ans+=val;
             }
         }
-        return true;
+        return ans;
     }
 };
 int main(){
+    Solution s;
     return 0;
 }
