@@ -1,0 +1,13 @@
+1.推荐开发看的
+cpp:trpc https://doc.tarsyun.com/#/default-index 看源码 学的差不多了自己写个服务器，先从echo服务器开始
+golang:kratos(微服务)、gin(单体)
+Python:fastapi、Django
+Java:Spring全家桶
+通信协议:proto3
+Linux、docker(学到docker compose)、k8s(大概了解)
+
+2.题库
+初步牛客网:https://www.nowcoder.com/exam/oj
+进阶洛谷:https://studyingfather.com/archives/841
+
+
