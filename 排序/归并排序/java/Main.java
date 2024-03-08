@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -35,13 +36,23 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-        int[] nums = new int[]{10,9,8,7,6,5,4,3,2,1};
+    public static void main(String[] args) throws IOException {
+        // BufferedReader reader = new BufferedReader(new
+        // InputStreamReader(System.in));//java输入输出加速
+        // // int n = Integer.parseInt(reader.readLine());
+        // Scanner scanner = new Scanner(System.in);
+        // int n = scanner.nextInt();
+        int[] nums = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
         int length = nums.length;
         tmp = new int[length];
-        mergeSort(nums,0,nums.length-1);
-        for(int n:nums){
+        mergeSort(nums, 0, nums.length - 1);
+        for (int n : nums) {
             System.out.println(n);
         }
+        // BufferedWriter writer = new BufferedWriter(new
+        // OutputStreamWriter(System.out));
+        // writer.write("hello world1\n");
+        // writer.write("hello world2");
+        // writer.flush();
     }
 }

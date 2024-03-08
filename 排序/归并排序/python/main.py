@@ -25,6 +25,7 @@ def sortArray(nums: List[int]) -> List[int]:
 
 
 if __name__ == '__main__':
+    # info = input()
     nums = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     sortArray(nums)
     for n in nums:
