@@ -8,28 +8,19 @@ from typing import List
 
 
 class Solution:
-
-    def addStrings(self, num1: str, num2: str) -> str:
-        i = len(num1) - 1
-        j = len(num2) - 1
-        ans = []
-        add = 0
-        while i >= 0 or j >= 0 or add != 0:
-            x = 0
-            y = 0
-            if i >= 0:
-                x = int(num1[i])
-            if j >= 0:
-                y = int(num2[j])
-            result = x + y + add
-            ans.append(str(result % 10))
-            add = result // 10
-            i -= 1
-            j -= 1
-        ans.reverse()
-        return "".join(ans)
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = []
+        for i in range(m):
+            dp.append([0] * n)
+        for i in range(1, m + 1):
+            dp[i][1] = 1
+        for i in range(1, n + 1):
+            dp[1][i] = 1
+        for i in range(2, m + 1):
+            for j in range(2, n + 1):
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+        return dp[m][n]
 
 
 if __name__ == '__main__':
     s = Solution()
-    s.addStrings("11","123")
