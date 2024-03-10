@@ -1,26 +1,65 @@
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
-//https://leetcode.cn/problems/car-pooling/description/
-class Solution {
-public:
-    bool carPooling(vector<vector<int>>& trips, int capacity) {
-        int max = 1000;
-        int diff[max+1];
-        for(vector<int> trip:trips){
-            diff[trip[1]] += trip[0];
-            diff[trip[2]] -= trip[0];
-        }
 
-        int sum = 0;
-        for(int i=0;i<=max;i++){
-            sum+=diff[i];
-            if(sum>capacity){
-                return false;
+class UnionFind
+{
+
+public:
+    UnionFind(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            parent.emplace_back(i);
+        }
+    }
+
+    void union_member(int index1, int index2)
+    {
+        parent[find(index1)] = find(index2);
+    }
+
+    int find(int index)
+    {
+        if (parent[index] != index)
+        {
+            parent[index] = find(parent[index]);
+        }
+        return parent[index];
+    }
+
+    vector<int> parent;
+};
+
+class Solution
+{
+public:
+    int findCircleNum(vector<vector<int>> &isConnected)
+    {
+        int cities = isConnected.size();
+        UnionFind uf(cities);
+        for (int i = 0; i < cities; i++)
+        {
+            for (int j = i + 1; j < cities; j++)
+            {
+                if (isConnected[i][j] == 1)
+                {
+                    uf.union_member(i, j);
+                }
             }
         }
-        return true;
+        int provinces = 0;
+        for (int i = 0; i < cities; i++)
+        {
+            if (uf.parent[i] == i)
+            {
+                provinces++;
+            }
+        }
+        return provinces;
     }
 };
-int main(){
+
+int main()
+{
     return 0;
 }

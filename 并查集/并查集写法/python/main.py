@@ -1,27 +1,29 @@
-from functools import cmp_to_key
-from typing import List
+class UnionFind:
 
+    def __init__(self, n):
+        self.parent = []
+        for i in range(n):
+            self.parent.append(i)
 
-# import sys
-#
-# sys.setrecursionlimit(100000)  # 例如这里设置为十万
+    def union(self, x, y):
+        self.parent[self.find(x)] = self.find(y)
+
+    def find(self, index):
+        if self.parent[index] != index:
+            self.parent[index] = self.find(self.parent[index])
+        return self.parent[index]
 
 
 class Solution:
-
-    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
-        max_value = 1000
-        diff = [0] * (max_value + 1)
-        for trip in trips:
-            diff[trip[1]] += trip[0]
-            diff[trip[2]] -= trip[0]
-        sum = 0
-        for n in diff:
-            sum += n
-            if sum > capacity:
-                return False
-        return True
-
-
-if __name__ == '__main__':
-    s = Solution()
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        length = len(isConnected)
+        uf = UnionFind(length)
+        ans = 0
+        for i in range(length):
+            for j in range(i + 1, length):
+                if isConnected[i][j] == 1:
+                    uf.union(i, j)
+        for i in range(length):
+            if uf.parent[i] == i:
+                ans += 1
+        return ans
