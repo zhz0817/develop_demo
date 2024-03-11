@@ -36,20 +36,17 @@ public class Main {
             while((l<r)&&(arr[r]>p)){
                 r--;
             }
+            if(l<r){
+                arr[l++] = arr[r];
+            } 
             //控制左指针向右移动，找到大于基准元素的那个数
             while((l<r)&&(arr[l]<=p)){
                 l++;
             }
-            //交换l指针和r指针所指的元素
             if(l<r){
-                int tmp=arr[l];
-                arr[l]=arr[r];
-                arr[r]=tmp;
+                arr[r--] = arr[l];
             }
         }
-
-        //交换基准元素和重合点的元素
-        arr[startIndex]=arr[l];
         arr[l]=p;
         return l;
     }
@@ -58,7 +55,7 @@ public class Main {
     public static void main(String[] args) {
         int[] nums = new int[]{10,9,8,7,6,5,4,3,2,1};
         int length = nums.length;
-        quickSort(nums,0,nums.length-1);
+        quickSort(nums,0,length-1);
         for(int n:nums){
             System.out.println(n);
         }

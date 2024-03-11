@@ -17,13 +17,14 @@ def partition(nums: List[int], left: int, right: int) -> int:
     while l != r:
         while l < r and nums[r] > p:
             r -= 1
+        if l<r:
+            nums[l] = nums[r]
+            l += 1
         while l < r and nums[l] <= p:
             l += 1
         if l < r:
-            tmp = nums[l]
-            nums[l] = nums[r]
-            nums[r] = tmp
-    nums[left] = nums[l]
+            nums[r] = nums[l]
+            r -= 1
     nums[l] = p
     return l
 
