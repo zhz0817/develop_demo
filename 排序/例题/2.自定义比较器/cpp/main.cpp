@@ -4,7 +4,7 @@ using namespace std;
 class Solution {
 public:
 
-    static bool cmp(std::pair<std::string,int> pair1,std::pair<std::string,int> pair2){
+    static bool cmp(std::pair<std::string,int>& pair1,std::pair<std::string,int>& pair2){
         return pair1.second>pair2.second;
     }
     vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
