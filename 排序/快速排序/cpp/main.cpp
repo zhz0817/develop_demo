@@ -1,6 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
-
+// https://www.zhihu.com/question/483978234/answer/3251244691?utm_id=0
 void quick_sort(vector<int>& nums,int left,int right);
 int partition(vector<int>& nums,int left,int right); //讲一下为什么要先声明
 void quick_sort(vector<int>& nums,int left,int right){
