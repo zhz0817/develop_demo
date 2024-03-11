@@ -18,7 +18,13 @@ public class Main {
         for(int i=0;i<n;i++){
             list.add(new Pair(names[i],heights[i]));
         }
-        Collections.sort(list,(a,b)-> b.height-a.height);
+//        Collections.sort(list,(a,b)-> b.height-a.height); lambda表达式写法
+        Collections.sort(list, new Comparator<Pair>() {
+            @Override
+            public int compare(Pair o1, Pair o2) {
+                return o2.height-o1.height;
+            }
+        });//常规写法
         for(int i=0;i<n;i++){
             ans[i] = list.get(i).name;
         }
