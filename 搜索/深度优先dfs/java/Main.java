@@ -1,5 +1,7 @@
 import java.util.*;
 
+// javac Main.java
+// java Main
 public class Main {
 
     public class TreeNode {

@@ -1,5 +1,5 @@
 from typing import List, Optional
-
+# python main.py  如果是linux要区分python3和python2
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):

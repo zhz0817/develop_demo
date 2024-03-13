@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 // https://leetcode.cn/problems/minimum-depth-of-binary-tree/description/
+// g++ -o 二进制文件名 源文件名 -std=c++11 举例 g++ -o main main.cpp -std=c++11
 struct TreeNode {
   int val;
   TreeNode *left;
