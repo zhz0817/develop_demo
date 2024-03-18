@@ -1,25 +1,26 @@
 #include "bits/stdc++.h"
 using namespace std;
-//https://leetcode.cn/problems/unique-paths/
+// https://leetcode.cn/problems/permutations/description/
 class Solution {
 public:
-    int uniquePaths(int m, int n) {
-        int dp[m+1][n+1];
-        for(int i=1;i<=m;i++){
-            dp[i][1] = 1;
+    vector<vector<int>> permute(vector<int>& nums) {
+        int length = nums.size();
+        int n = 1;
+        for(int i=2;i<=length;i++){
+            n*=i;
         }
-        for(int i=1;i<=n;i++){
-            dp[1][i] = 1;
+        sort(nums.begin(),nums.end());
+        vector<vector<int>> ans(n);
+        for(int i=0;i<n;i++){
+            vector<int> temp = nums;//深拷贝
+            ans[i] = temp;
+            next_permutation(nums.begin(), nums.end());
         }
-        for(int i=2;i<=m;i++){
-            for(int j=2;j<=n;j++){
-                dp[i][j] = dp[i-1][j]+dp[i][j-1];
-            }
-        }
-        return dp[m][n];
+        return ans;
     }
 };
 int main(){
     Solution s;
-    return 0;
+    vector<int> vector1 {1,2,3};
+    s.permute(vector1);
 }

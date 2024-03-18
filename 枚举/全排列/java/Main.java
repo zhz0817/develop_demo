@@ -1,30 +1,33 @@
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-// 1:无需package
-// 2: 类名必须Main, 不可修改
-
+import java.util.*;
 public class Main {
 
-    public int uniquePaths(int m, int n) {
-        int[][] dp = new int[m+1][n+1];
-        for(int i=1;i<=m;i++){
-            dp[i][1] = 1;
-        }
-        for(int i=1;i<=n;i++){
-            dp[1][i] = 1;
-        }
-        for(int i=2;i<=m;i++){
-            for(int j=2;j<=n;j++){
-                dp[i][j] = dp[i-1][j]+dp[i][j-1];
+    public void dfs(int[] nums,List<List<Integer>> result,int left,int right){
+        if(left==right){
+            List<Integer> list = new ArrayList<>(nums.length);
+            for (int num : nums) {
+                list.add(num);
             }
+            result.add(list);
+            return;
         }
-        return dp[m][n];
+        for(int i=left;i<right;i++){
+            int temp=nums[left];
+            nums[left]=nums[i];
+            nums[i]=temp;
+            dfs(nums,result,left+1,right);
+            temp=nums[left];
+            nums[left]=nums[i];
+            nums[i]=temp;
+        }
     }
 
-    public static void main(String[] args) throws IOException {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        dfs(nums,ans,0,nums.length);
+        return ans;
+    }
+
+    public static void main(String[] args) {
         Main main = new Main();
     }
 }
