@@ -14,6 +14,6 @@ public:
     }
 };
 int main(){
-    Solution s;//讲一下暴力解法，也就是解空间这个概念
+    Solution s;
     return 0;
 }
