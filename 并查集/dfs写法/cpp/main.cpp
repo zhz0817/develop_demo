@@ -14,7 +14,8 @@ public:
     }
     int findCircleNum(vector<vector<int>>& isConnected) {
         int length = isConnected.size();
-        vector<int> isVisited(length);//讲一下为什么不用vector<bool>
+        vector<int> isVisited(length);//讲一下为什么不用vector<bool> 
+        // https://www.zhihu.com/question/23367698
         int ans = 0;
         for(int i=0;i<length;i++){
             if(isVisited[i]==0){

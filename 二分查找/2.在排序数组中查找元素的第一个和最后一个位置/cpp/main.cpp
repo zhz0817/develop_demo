@@ -13,7 +13,8 @@ public:
                     left = mid+1;
                 }
             }
-            return left;
+            // return left;
+            return right+1;
         }
 
     int ceil(vector<int>& nums,int left,int right,int target){
@@ -26,7 +27,8 @@ public:
                     right = mid-1;
                 }
             }
-            return left-1;
+            // return left-1;
+            return right;
         }
 
     vector<int> searchRange(vector<int>& nums, int target) {

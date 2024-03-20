@@ -1,6 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
-//https://leetcode.cn/problems/car-pooling/description/
+
 class Solution {
 public:
     int findCircleNum(vector<vector<int>>& isConnected) {

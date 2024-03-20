@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// https://leetcode.cn/problems/number-of-provinces/description/
 class UnionFind
 {
 

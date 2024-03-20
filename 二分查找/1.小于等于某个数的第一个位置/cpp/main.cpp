@@ -18,9 +18,12 @@ public:
             }
         }
         return left;
+        // return right+1;
     }
 };
 int main(){
     Solution s;
+    vector<int> vector1{1,3,5,6};
+    s.searchInsert(vector1,5);
     return 0;
 }
