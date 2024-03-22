@@ -30,4 +30,5 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
     }
+// https://leetcode.cn/problems/permutations/solutions/218275/quan-pai-lie-by-leetcode-solution-2/
 }
